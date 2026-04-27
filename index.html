@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juan Dela Cruz | Software Engineer</title>
+    <title>Ferdinand De Leon | Software Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -230,16 +230,16 @@
 <body>
 
     <nav>
-        <div class="logo">JUAN.DEV</div>
+        <div class="logo">FDL.DEV</div>
         <div class="nav-links">
             <a href="#work">Experience</a>
-            <a href="#contact">Contact</a>
+            <a href="https://ferdydeleon.github.io/my-portfolio/#work" target="_blank">Live Portfolio</a>
         </div>
     </nav>
 
     <section class="hero">
-        <h1>Software Engineer.</h1>
-        <p>I build scalable, high-performance web applications. Specializing in <b>React</b>, <b>Node.js</b>, and <b>Enterprise Solutions</b> with 7+ years of hands-on experience.</p>
+        <h1>Ferdinand B. De Leon</h1>
+        <p>Software Engineer specialized in building scalable and responsive applications. Proficient in <b>React.js</b>, <b>React Native</b>, and <b>PHP Frameworks</b> with 7+ years of hands-on experience.</p>
         
         <div class="skills-tag-container">
             <span class="skill-tag">React.js</span>
@@ -279,11 +279,12 @@
     <footer id="contact">
         <div class="contact-box">
             <h2>Let's build something great.</h2>
-            <p style="margin: 1.5rem 0; color: var(--text-muted)">Currently open for senior roles and specialized consulting.</p>
-            <p style="font-size: 1.2rem; color: var(--primary); font-weight: 700; margin-bottom: 2rem;">hello@juan.com</p>
-            <a href="#" class="btn">Download My Resume</a>
+            <p style="margin: 0.5rem 0; color: var(--text-muted)">Echague, P02 3309, Philippines</p>
+            <p style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem;">+63 927 263 8509</p>
+            <p style="font-size: 1.2rem; color: var(--primary); font-weight: 700; margin-bottom: 2rem;">deleonferdinand30@gmail.com</p>
+            <a href="https://ferdydeleon.github.io/my-portfolio/#work" class="btn" target="_blank">View GitHub Portfolio</a>
         </div>
-        <p style="margin-top: 4rem; font-size: 0.8rem; color: #475569;">&copy; 2026 Juan Dela Cruz. Built with Passion & React.</p>
+        <p style="margin-top: 4rem; font-size: 0.8rem; color: #475569;">&copy; 2026 Ferdinand B. De Leon. Built with Passion & React.</p>
     </footer>
 
     <script>
@@ -371,7 +372,7 @@
         function filterData(cat) {
             const btns = document.querySelectorAll('.filter-btn');
             btns.forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
+            if(event) event.target.classList.add('active');
 
             if (cat === 'all') {
                 renderProjects(projects);
