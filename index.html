@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="tl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Portfolio | Juan Dela Cruz</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Juan Dela Cruz | Software Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* CSS VARIABLES - Madaling baguhin ang kulay dito */
         :root {
-            --primary: #2563eb;
-            --secondary: #64748b;
-            --dark: #0f172a;
-            --light: #ffffff;
-            --bg-gray: #f8fafc;
-            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #00f2fe;
         }
 
         * {
@@ -22,268 +22,357 @@
             box-sizing: border-box;
         }
 
-        html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-gray);
-            color: var(--dark);
+            background-color: var(--dark-bg);
+            color: var(--text-main);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* NAVIGATION */
+        /* Smooth Scroll */
+        html { scroll-behavior: smooth; }
+
+        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1.5rem 10%;
-            background: white;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); }
+        .logo { font-weight: 800; font-size: 1.5rem; color: var(--primary); letter-spacing: -1px; }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--dark);
+            color: var(--text-main);
             margin-left: 2rem;
             font-weight: 500;
             transition: 0.3s;
+            font-size: 0.9rem;
         }
 
         .nav-links a:hover { color: var(--primary); }
 
-        /* HERO SECTION */
+        /* Hero Section */
         .hero {
-            height: 80vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
+            padding: 0 10%;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
         }
 
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; letter-spacing: -1px; }
-        .hero p { font-size: 1.2rem; color: var(--secondary); max-width: 600px; }
+        .hero h1 { 
+            font-size: clamp(2.5rem, 8vw, 4.5rem); 
+            font-weight: 800; 
+            margin-bottom: 1.5rem; 
+            line-height: 1.1;
+            background: linear-gradient(to right, #fff, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p { 
+            font-size: 1.2rem; 
+            color: var(--text-muted); 
+            max-width: 700px; 
+            margin-bottom: 2.5rem;
+        }
 
         .btn {
-            margin-top: 2rem;
-            padding: 0.8rem 2.5rem;
+            padding: 0.8rem 2rem;
             background: var(--primary);
             color: white;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 8px;
             font-weight: 600;
-            transition: 0.3s;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+            transition: 0.3s all ease;
+            display: inline-block;
         }
 
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4); }
-
-        /* PROJECTS SECTION */
-        .projects-container {
-            max-width: 1100px;
-            margin: 5rem auto;
-            padding: 0 2rem;
+        .btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
         }
 
-        .section-header {
+        /* Skills Section */
+        .skills-tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 2rem;
+            max-width: 800px;
+        }
+
+        .skill-tag {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 100px 10%;
+        }
+
+        .section-title {
+            margin-bottom: 3rem;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .filter-group button {
-            border: none;
-            background: none;
-            padding: 0.5rem 1rem;
+        .section-title h2 { font-size: 2.5rem; }
+
+        .filter-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid #334155;
+            color: var(--text-muted);
+            padding: 8px 20px;
+            border-radius: 6px;
             cursor: pointer;
-            font-weight: 600;
-            color: var(--secondary);
             transition: 0.3s;
         }
 
-        .filter-group button.active {
-            color: var(--primary);
-            border-bottom: 2px solid var(--primary);
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2rem;
         }
 
-        /* PROJECT CARDS */
+        /* Project Cards */
         .card {
-            background: white;
-            border-radius: 12px;
+            background: var(--card-bg);
+            border-radius: 16px;
             padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.05);
             transition: 0.4s;
-            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--card-shadow);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
-        .tag {
+        .card .company {
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
             color: var(--primary);
             font-weight: 700;
-            background: #eff6ff;
-            padding: 4px 12px;
-            border-radius: 20px;
+            margin-bottom: 0.5rem;
         }
 
-        .card h3 { margin: 1rem 0 0.5rem; font-size: 1.4rem; }
-        .card p { color: var(--secondary); font-size: 0.95rem; margin-bottom: 1.5rem; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1; }
 
-        .tech-stack { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 1.5rem; }
-        .tech-stack span { font-size: 0.8rem; background: #f1f5f9; padding: 2px 8px; border-radius: 4px; color: #475569; }
-
-        .view-link {
-            text-decoration: none;
-            font-weight: 700;
-            color: var(--dark);
-            display: inline-flex;
-            align-items: center;
+        .tech-list { display: flex; gap: 8px; flex-wrap: wrap; }
+        .tech-list span {
+            font-size: 0.7rem;
+            background: #0f172a;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
-        .view-link:hover { color: var(--primary); }
-
+        /* Contact Footer */
         footer {
+            padding: 100px 10%;
             text-align: center;
-            padding: 5rem 0;
-            background: white;
-            border-top: 1px solid #e2e8f0;
+            background: #070b14;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* Responsive */
+        .contact-box {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 4rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .section-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .grid { grid-template-columns: 1fr; }
+            .section-title { flex-direction: column; align-items: center; text-align: center; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">JDC.</div>
+        <div class="logo">JUAN.DEV</div>
         <div class="nav-links">
-            <a href="#work">Work</a>
+            <a href="#work">Experience</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
 
     <section class="hero">
-        <h1>Building Digital Solutions.</h1>
-        <p>I'm Juan, a Developer specialized in creating clean, functional, and user-centric websites and applications.</p>
-        <a href="#work" class="btn">See My Projects</a>
+        <h1>Software Engineer.</h1>
+        <p>I build scalable, high-performance web applications. Specializing in <b>React</b>, <b>Node.js</b>, and <b>Enterprise Solutions</b> with 7+ years of hands-on experience.</p>
+        
+        <div class="skills-tag-container">
+            <span class="skill-tag">React.js</span>
+            <span class="skill-tag">React Native</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Laravel</span>
+            <span class="skill-tag">CodeIgniter</span>
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">Socket.io</span>
+            <span class="skill-tag">Tailwind CSS</span>
+            <span class="skill-tag">TypeScript</span>
+        </div>
+
+        <div style="margin-top: 3rem;">
+            <a href="#work" class="btn">View My Portfolio</a>
+        </div>
     </section>
 
-    <div class="projects-container" id="work">
-        <div class="section-header">
+    <section class="projects-section" id="work">
+        <div class="section-title">
             <div>
-                <p style="color: var(--primary); font-weight: 700;">PORTFOLIO</p>
-                <h2>Featured Projects</h2>
+                <h2 id="proj-count">Featured Work</h2>
+                <p style="color: var(--text-muted)">Selected projects from 2016 to 2026</p>
             </div>
             <div class="filter-group">
-                <button class="active" onclick="filterData('all')">All</button>
-                <button onclick="filterData('web')">Web</button>
-                <button onclick="filterData('app')">Apps</button>
+                <button class="filter-btn active" onclick="filterData('all')">All</button>
+                <button class="filter-btn" onclick="filterData('web')">Web</button>
+                <button class="filter-btn" onclick="filterData('app')">Mobile/System</button>
             </div>
         </div>
 
         <div class="grid" id="project-grid">
             </div>
-    </div>
+    </section>
 
     <footer id="contact">
-        <h3>Want to start a project?</h3>
-        <p>Email me at: <strong>hello@juan.com</strong></p>
-        <div style="margin-top: 2rem;">
-            <a href="#" class="btn">Download Resume</a>
+        <div class="contact-box">
+            <h2>Let's build something great.</h2>
+            <p style="margin: 1.5rem 0; color: var(--text-muted)">Currently open for senior roles and specialized consulting.</p>
+            <p style="font-size: 1.2rem; color: var(--primary); font-weight: 700; margin-bottom: 2rem;">hello@juan.com</p>
+            <a href="#" class="btn">Download My Resume</a>
         </div>
+        <p style="margin-top: 4rem; font-size: 0.8rem; color: #475569;">&copy; 2026 Juan Dela Cruz. Built with Passion & React.</p>
     </footer>
 
     <script>
-        // 1. DATA NG MGA PROJECT MO
         const projects = [
             {
-                title: "Fintech Dashboard",
+                title: "Live Auction System",
+                company: "Leon Gallery",
                 category: "web",
-                desc: "Isang real-time dashboard para sa monitoring ng crypto transactions.",
-                tech: ["React", "Chart.js", "Firebase"],
-                link: "#"
+                desc: "Real-time bidding system for high-value art auctions. Integrated secure payments and live data sync.",
+                tech: ["React.js", "Material UI", "Socket.IO", "Node.js"],
+                period: "2023 - Present"
             },
             {
-                title: "Fitness Tracker App",
-                category: "app",
-                desc: "Mobile application para sa pag-track ng daily steps at calories.",
-                tech: ["Flutter", "Dart", "SQLite"],
-                link: "#"
-            },
-            {
-                title: "E-Learning Platform",
+                title: "Online Betting Application",
+                company: "Modern Global System",
                 category: "web",
-                desc: "Isang LMS website na may video streaming at quiz features.",
-                tech: ["Next.js", "Tailwind", "Supabase"],
-                link: "#"
+                desc: "High-traffic betting platform featuring real-time dashboards, user management, and financial reporting.",
+                tech: ["React.js", "Socket.io", "Material UI", "Node.js"],
+                period: "2019 - 2026"
             },
             {
-                title: "Task Management Tool",
+                title: "Approver Monitoring Portal",
+                company: "Trend Micro",
+                category: "web",
+                desc: "Enterprise-level web portal for internal approval workflows and system monitoring.",
+                tech: ["PHP", "CodeIgniter", "MVC", "MySQL"],
+                period: "2017 - 2018"
+            },
+            {
+                title: "E-DTR Android Biometrics",
+                company: "e-Ferm Business Solution",
                 category: "app",
-                desc: "Productivity app na tumutulong sa mga teams na mag-collab.",
-                tech: ["Vue.js", "Node.js", "PostgreSQL"],
-                link: "#"
-            },        {
-        title: "Leon Gallery - Live Auction",
-        category: "web",
-        desc: "A high-performance auction platform with real-time bidding, secure payment integrations, and a robust admin management system.",
-        tech: ["React.js", "Node.js", "Socket.io", "PostgreSQL"],
-        link: "#" // Ilagay mo rito ang link kung live na, o link sa GitHub code
-    },
+                desc: "Android-based Daily Time Record system using QR Code and Node.js backend.",
+                tech: ["JavaScript", "Node.js", "Android"],
+                period: "Freelance"
+            },
+            {
+                title: "Sales & Inventory System",
+                company: "AceGadgetStore",
+                category: "app",
+                desc: "Full-scale inventory management and E-commerce website for a gadget retail store.",
+                tech: ["Laravel", "Tailwind", "MySQL", "PHP"],
+                period: "2017 - 2019"
+            },
+            {
+                title: "Employee Survey System",
+                company: "NOW Corporation",
+                category: "web",
+                desc: "Automated data collection and reporting system for Judiciary email workflows.",
+                tech: ["XPages", "JSP", "IBM iNotes"],
+                period: "2018 - 2020"
+            },
+            {
+                title: "Incident Report Management",
+                company: "Global Pinoy Remittance",
+                category: "app",
+                desc: "Suite of tools for remittance reporting, cash card apps, and daily incident monitoring.",
+                tech: ["PHP", "JavaScript", "General Reports"],
+                period: "2016 - 2017"
+            }
         ];
 
-     
-        // 2. RENDER PROJECTS FUNCTION
         function renderProjects(data) {
             const grid = document.getElementById('project-grid');
-            grid.innerHTML = ''; // Clear current content
+            grid.innerHTML = '';
 
             data.forEach(item => {
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.innerHTML = `
-                    <span class="tag">${item.category}</span>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px">
+                        <span class="company">${item.company}</span>
+                        <span style="font-size:0.7rem; color:var(--text-muted)">${item.period}</span>
+                    </div>
                     <h3>${item.title}</h3>
                     <p>${item.desc}</p>
-                    <div class="tech-stack">
+                    <div class="tech-list">
                         ${item.tech.map(t => `<span>${t}</span>`).join('')}
                     </div>
-                    <a href="${item.link}" class="view-link">Case Study &nbsp; →</a>
                 `;
                 grid.appendChild(card);
             });
         }
 
-        // 3. FILTER LOGIC
         function filterData(cat) {
-            // Update active button
-            const btns = document.querySelectorAll('.filter-group button');
+            const btns = document.querySelectorAll('.filter-btn');
             btns.forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
 
-            // Filter projects
             if (cat === 'all') {
                 renderProjects(projects);
             } else {
@@ -292,9 +381,7 @@
             }
         }
 
-        // Initial Load
         window.onload = () => renderProjects(projects);
     </script>
-
 </body>
 </html>
