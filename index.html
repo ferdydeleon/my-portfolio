@@ -195,7 +195,18 @@
             margin-bottom: 0.5rem;
         }
 
-        .card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .card .role-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent);
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            border: 1px solid rgba(0, 242, 254, 0.2);
+        }
         .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1; }
 
         .tech-list { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -291,7 +302,8 @@
     <script>
         const projects = [
             {
-                title: "Full-Stack Live Auction & CMS",
+                title: "Live Bidding Auction Platform",
+                role: "Front End Engineer",
                 company: "Leon Gallery",
                 category: "web",
                 desc: "End-to-end development of the auction platform. Built the entire Admin Panel for managing real-time uploads, catalog updates, and live auction sequences. Integrated Socket.io for instant bidding sync.",
@@ -300,7 +312,8 @@
                 link: "https://leon-gallery.com/"
             },
             {
-                title: "Biyaya.ph Foundation Portal",
+                title: "Biyaya Animal Sanctuary Portal",
+                role: "Front End Engineer",
                 company: "Biyaya Animal Sanctuary",
                 category: "web",
                 desc: "Developed and maintained the official website for animal welfare. Implemented WordPress custom solutions for donation tracking, animal profiles, and community engagement.",
@@ -309,7 +322,8 @@
                 link: "https://biyaya.ph/"
             },
             {
-                title: "Online Betting Application",
+                title: "Real-Time Online Betting Platform",
+                role: "Front End Engineer",
                 company: "Modern Global System",
                 category: "web",
                 desc: "High-traffic betting platform featuring real-time dashboards, user management, and financial reporting.",
@@ -318,7 +332,18 @@
                 link: "http://testadmin.marble6.live/login"
             },
             {
-                title: "Approver Monitoring Portal",
+                title: "Sales & Inventory Management",
+                role: "Full Stack Developer",
+                company: "AceGadgetStore",
+                category: "app",
+                desc: "Full-scale inventory management and E-commerce website for a gadget retail store. Developed both the client-facing store and the robust backend management system.",
+                tech: ["Laravel", "Tailwind", "MySQL", "PHP"],
+                period: "2017 - 2019",
+                link: "#"
+            },
+            {
+                title: "Approval Workflow & Monitoring",
+                role: "Front End Engineer",
                 company: "Trend Micro",
                 category: "web",
                 desc: "Enterprise-level web portal for internal approval workflows and system monitoring.",
@@ -327,25 +352,8 @@
                 link: "#"
             },
             {
-                title: "E-DTR Android Biometrics",
-                company: "e-Ferm Business Solution",
-                category: "app",
-                desc: "Android-based Daily Time Record system using QR Code and Node.js backend.",
-                tech: ["JavaScript", "Node.js", "Android"],
-                period: "Freelance",
-                link: "#"
-            },
-            {
-                title: "Sales & Inventory System",
-                company: "AceGadgetStore",
-                category: "app",
-                desc: "Full-scale inventory management and E-commerce website for a gadget retail store.",
-                tech: ["Laravel", "Tailwind", "MySQL", "PHP"],
-                period: "2017 - 2019",
-                link: "#"
-            },
-            {
                 title: "Employee Survey System",
+                role: "Front End Engineer",
                 company: "NOW Corporation",
                 category: "web",
                 desc: "Automated data collection and reporting system for Judiciary email workflows.",
@@ -354,7 +362,8 @@
                 link: "#"
             },
             {
-                title: "Incident Report Management",
+                title: "Incident Reporting & Management",
+                role: "Front End Engineer",
                 company: "Global Pinoy Remittance",
                 category: "app",
                 desc: "Suite of tools for remittance reporting, cash card apps, and daily incident monitoring.",
@@ -379,6 +388,7 @@
                         <span style="font-size:0.7rem; color:var(--text-muted)">${item.period}</span>
                     </div>
                     <h3>${item.title}</h3>
+                    <div class="role-badge">${item.role}</div>
                     <p>${item.desc}</p>
                     <div class="tech-list">
                         ${item.tech.map(t => `<span>${t}</span>`).join('')}
@@ -395,7 +405,6 @@
             const btns = document.querySelectorAll('.filter-btn');
             btns.forEach(b => b.classList.remove('active'));
             
-            // Handle active state
             if(event) event.target.classList.add('active');
 
             if (cat === 'all') {
