@@ -248,12 +248,11 @@
             <span class="skill-tag">React Native</span>
             <span class="skill-tag">Node.js</span>
             <span class="skill-tag">Laravel</span>
-            <span class="skill-tag">CodeIgniter</span>
+            <span class="skill-tag">WordPress</span>
             <span class="skill-tag">PHP</span>
             <span class="skill-tag">MySQL</span>
             <span class="skill-tag">Socket.io</span>
             <span class="skill-tag">Tailwind CSS</span>
-            <span class="skill-tag">TypeScript</span>
         </div>
 
         <div style="margin-top: 3rem;">
@@ -292,13 +291,22 @@
     <script>
         const projects = [
             {
-                title: "Live Auction System",
+                title: "Full-Stack Live Auction & CMS",
                 company: "Leon Gallery",
                 category: "web",
-                desc: "Real-time bidding system for high-value art auctions. Integrated secure payments and live data sync.",
-                tech: ["React.js", "Material UI", "Socket.IO", "Node.js"],
+                desc: "End-to-end development of the auction platform. Built the entire Admin Panel for managing real-time uploads, catalog updates, and live auction sequences. Integrated Socket.io for instant bidding sync.",
+                tech: ["React.js", "Material UI", "Socket.IO", "Node.js", "Express"],
                 period: "2023 - Present",
                 link: "https://leon-gallery.com/"
+            },
+            {
+                title: "Biyaya.ph Foundation Portal",
+                company: "Biyaya Animal Sanctuary",
+                category: "web",
+                desc: "Developed and maintained the official website for animal welfare. Implemented WordPress custom solutions for donation tracking, animal profiles, and community engagement.",
+                tech: ["WordPress", "PHP", "Elementor", "MySQL"],
+                period: "2024 - 2026",
+                link: "https://biyaya.ph/"
             },
             {
                 title: "Online Betting Application",
@@ -307,7 +315,7 @@
                 desc: "High-traffic betting platform featuring real-time dashboards, user management, and financial reporting.",
                 tech: ["React.js", "Socket.io", "Material UI", "Node.js"],
                 period: "2019 - 2026",
-                link: "#"
+                link: "http://testadmin.marble6.live/login"
             },
             {
                 title: "Approver Monitoring Portal",
@@ -386,6 +394,8 @@
         function filterData(cat) {
             const btns = document.querySelectorAll('.filter-btn');
             btns.forEach(b => b.classList.remove('active'));
+            
+            // Handle active state
             if(event) event.target.classList.add('active');
 
             if (cat === 'all') {
