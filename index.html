@@ -285,7 +285,8 @@
         </div>
 
         <div class="grid" id="project-grid">
-            </div>
+            <!-- Projects injected by JS -->
+        </div>
     </section>
 
     <footer id="contact">
@@ -303,11 +304,11 @@
         const projects = [
             {
                 title: "Live Bidding Auction Platform",
-                role: "Front End Engineer",
+                role: "Front End & Mobile Engineer",
                 company: "Leon Gallery",
-                category: "web",
-                desc: "End-to-end development of the auction platform. Built the entire Admin Panel for managing real-time uploads, catalog updates, and live auction sequences. Integrated Socket.io for instant bidding sync.",
-                tech: ["React.js", "Material UI", "Socket.IO", "Node.js", "Express"],
+                category: "hybrid", // Will appear in both filters
+                desc: "End-to-end development of the auction platform and mobile app. Built the Admin Panel for real-time catalog management and used Capacitor to deploy the web experience as a native-feel mobile application. Integrated Socket.io for instant bidding sync.",
+                tech: ["React.js", "Capacitor", "Socket.IO", "Node.js", "Material UI"],
                 period: "2023 - Present",
                 link: "https://leon-gallery.com/"
             },
@@ -410,7 +411,8 @@
             if (cat === 'all') {
                 renderProjects(projects);
             } else {
-                const filtered = projects.filter(p => p.category === cat);
+                // Modified to include 'hybrid' projects in both Web and App views
+                const filtered = projects.filter(p => p.category === cat || p.category === 'hybrid');
                 renderProjects(filtered);
             }
         }
