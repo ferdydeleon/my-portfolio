@@ -30,10 +30,8 @@
             overflow-x: hidden;
         }
 
-        /* Smooth Scroll */
         html { scroll-behavior: smooth; }
 
-        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -60,7 +58,6 @@
 
         .nav-links a:hover { color: var(--primary); }
 
-        /* Hero Section */
         .hero {
             min-height: 90vh;
             display: flex;
@@ -106,7 +103,6 @@
             box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
         }
 
-        /* Skills Section */
         .skills-tag-container {
             display: flex;
             flex-wrap: wrap;
@@ -125,7 +121,6 @@
             color: var(--text-muted);
         }
 
-        /* Projects Section */
         .projects-section {
             padding: 100px 10%;
         }
@@ -168,7 +163,6 @@
             gap: 2rem;
         }
 
-        /* Project Cards */
         .card {
             background: var(--card-bg);
             border-radius: 16px;
@@ -219,7 +213,6 @@
             border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
-        /* Contact Footer */
         footer {
             padding: 100px 10%;
             text-align: center;
@@ -284,9 +277,7 @@
             </div>
         </div>
 
-        <div class="grid" id="project-grid">
-            <!-- Projects injected by JS -->
-        </div>
+        <div class="grid" id="project-grid"></div>
     </section>
 
     <footer id="contact">
@@ -306,11 +297,21 @@
                 title: "Live Bidding Auction Platform",
                 role: "Front End & Mobile Engineer",
                 company: "Leon Gallery",
-                category: "hybrid", // Will appear in both filters
-                desc: "End-to-end development of the auction platform and mobile app. Built the Admin Panel for real-time catalog management and used Capacitor to deploy the web experience as a native-feel mobile application. Integrated Socket.io for instant bidding sync.",
+                category: "hybrid",
+                desc: "Full-cycle development of a high-stakes auction ecosystem. Built the real-time web portal and cross-platform mobile application using Capacitor, featuring instant bidding synchronization via Socket.io.",
                 tech: ["React.js", "Capacitor", "Socket.IO", "Node.js", "Material UI"],
                 period: "2023 - Present",
                 link: "https://leon-gallery.com/"
+            },
+            {
+                title: "Core Admin & Accounting Dashboard",
+                role: "Full Stack Engineer",
+                company: "Modern Global System",
+                category: "web",
+                desc: "Developed a comprehensive real-time management suite featuring a robust Accounting System, User Management, Event Orchestration, and detailed Transaction History with real-time reporting.",
+                tech: ["React.js", "Socket.io", "Material UI", "Node.js", "Reporting Tools"],
+                period: "2019 - 2026",
+                link: "http://testadmin.marble6.live/login"
             },
             {
                 title: "Biyaya Animal Sanctuary Portal",
@@ -323,16 +324,6 @@
                 link: "https://biyaya.ph/"
             },
             {
-                title: "Real-Time Online Betting Platform",
-                role: "Front End Engineer",
-                company: "Modern Global System",
-                category: "web",
-                desc: "High-traffic betting platform featuring real-time dashboards, user management, and financial reporting.",
-                tech: ["React.js", "Socket.io", "Material UI", "Node.js"],
-                period: "2019 - 2026",
-                link: "http://testadmin.marble6.live/login"
-            },
-            {
                 title: "Sales & Inventory Management",
                 role: "Full Stack Developer",
                 company: "AceGadgetStore",
@@ -343,8 +334,8 @@
                 link: "#"
             },
             {
-                title: "Approval Workflow & Monitoring",
-                role: "Front End Engineer",
+                title: "Enterprise Approval Workflow Portal",
+                role: "Full Stack Engineer",
                 company: "Trend Micro",
                 category: "web",
                 desc: "Enterprise-level web portal for internal approval workflows and system monitoring.",
@@ -353,12 +344,12 @@
                 link: "#"
             },
             {
-                title: "Employee Survey System",
-                role: "Front End Engineer",
+                title: "Judiciary Email Workflow System",
+                role: "Software Engineer",
                 company: "NOW Corporation",
                 category: "web",
-                desc: "Automated data collection and reporting system for Judiciary email workflows.",
-                tech: ["XPages", "JSP", "IBM iNotes"],
+                desc: "Engineered a sophisticated automated data collection and reporting system specifically designed for Judiciary email workflows, optimizing organizational efficiency.",
+                tech: ["XPages", "JSP", "IBM iNotes", "JavaScript"],
                 period: "2018 - 2020",
                 link: "#"
             },
@@ -377,7 +368,6 @@
         function renderProjects(data) {
             const grid = document.getElementById('project-grid');
             grid.innerHTML = '';
-
             data.forEach(item => {
                 const card = document.createElement('a');
                 card.className = 'card';
@@ -405,13 +395,10 @@
         function filterData(cat) {
             const btns = document.querySelectorAll('.filter-btn');
             btns.forEach(b => b.classList.remove('active'));
-            
             if(event) event.target.classList.add('active');
-
             if (cat === 'all') {
                 renderProjects(projects);
             } else {
-                // Modified to include 'hybrid' projects in both Web and App views
                 const filtered = projects.filter(p => p.category === cat || p.category === 'hybrid');
                 renderProjects(filtered);
             }
